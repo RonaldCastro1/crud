@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('Apellido');
             $table->string('Correo');
             $table->string('Telefono');  
-            $table->string('idPrograma');
+            $table->foreignId('programa_id')->constrained();
             $table->timestamps();
         });
     }

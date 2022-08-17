@@ -13,10 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('trimestres', function (Blueprint $table) {
+        Schema::create('instructor', function (Blueprint $table) {
             $table->id();
-            $table->string('numTrimestre');
-            $table->foreignId('ficha_id')->constrained();
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('trimestres');
+        Schema::dropIfExists('instructor');
     }
 };
