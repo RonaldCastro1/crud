@@ -9,14 +9,14 @@
     <tbody>
         @foreach($trimestres as $trimestre)
         <tr>
-            <td>{{$trimestre->idTimestre}}</td>
+            <td>{{$trimestre->id}}</td>
             <td>{{$trimestre->numTrimestre}}</</td>
             <td>{{$trimestre->idFicha}}</</td>
             <td>
-            <a href="{{url('/trimestre/'.$trimestre->idTrimestre.'/edit')}}">
+            <a href="{{url('/trimestre/'.$trimestre->id.'/edit')}}">
                 <button>Editar</button>
             </a> 
-            <form action="{{url('/trimestre/'.$trimestre->idTrimestre)}}" method="post">
+            <form action="{{url('/trimestre/'.$trimestre->id)}}" method="post">
                 @csrf
                 {{method_field('DELETE')}}
                 <input type="submit" onclick="return confirm('¿Quieres Borrar?')" value="Borrar">

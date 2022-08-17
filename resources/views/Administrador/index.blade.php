@@ -12,17 +12,17 @@
     <tbody>
         @foreach($administradores as $administrador)
         <tr>
-            <td>{{$administrador->idAdministrador}}</td>
+            <td>{{$administrador->id}}</td>
             <td>{{$administrador->Nombre}}</</td>
             <td>{{$administrador->Apellido}}</</td>
             <td>{{$administrador->Correo}}</</td>
             <td>{{$administrador->Telefono}}</</td>
             <td>{{$administrador->idPrograma}}</</td>
             <td>
-            <a href="{{url('/administrador/'.$administrador->idAdministrador.'/edit')}}">
+            <a href="{{url('/administrador/'.$administrador->id.'/edit')}}">
                 <button>Editar</button>
             </a> 
-            <form action="{{url('/administrador/'.$administrador->idAdministrador)}}" method="post">
+            <form action="{{url('/administrador/'.$administrador->id)}}" method="post">
                 @csrf
                 {{method_field('DELETE')}}
                 <input type="submit" onclick="return confirm('¿Quieres Borrar?')" value="Borrar">

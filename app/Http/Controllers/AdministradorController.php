@@ -59,9 +59,9 @@ class AdministradorController extends Controller
      * @param  \App\Models\Administrador  $administrador
      * @return \Illuminate\Http\Response
      */
-    public function edit($idAdministrador)
+    public function edit($id)
     {
-        $administrador=Administrador::findOrFail($idAdministrador);
+        $administrador=Administrador::findOrFail($id);
         return view ('Administrador.edit', compact('administrador'));
     }
 
@@ -76,7 +76,7 @@ class AdministradorController extends Controller
     {
         $datosAdmin = request()->except('_token','_method');
         Administrador::where('idAdministrador','=','$idAdministrador')->update($datosAdmin);
-        $administrador=Administrador::findOrFail($idAdministrador);
+        $administrador=Administrador::findOrFail($id);
         return view ('Administrador.edit', compact('administrador'));
     }
 
@@ -86,9 +86,9 @@ class AdministradorController extends Controller
      * @param  \App\Models\Administrador  $administrador
      * @return \Illuminate\Http\Response
      */
-    public function destroy($idAdministrador)
+    public function destroy($id)
     {
-        Administrador::destroy($idAdministrador);
+        Administrador::destroy($id);
         return redirect('administrador');
     }
 }

@@ -58,9 +58,9 @@ class TrimestreController extends Controller
      * @param  \App\Models\Trimestre  $trimestre
      * @return \Illuminate\Http\Response
      */
-    public function edit($idTrimestre)
+    public function edit($id)
     {
-        $trimestre=Trimestre::findOrFail($idTrimestre);
+        $trimestre=Trimestre::findOrFail($id);
         return view ('Trimestre.edit', compact('trimestre'));
     }
 
@@ -75,7 +75,7 @@ class TrimestreController extends Controller
     {
         $datosTrimes = request()->except('_token','_method');
         Trimestre::where('idTrimestre','=','$idTrimestre')->update($datosTrimes);
-        $trimestre=Trimestre::findOrFail($idTrimestre);
+        $trimestre=Trimestre::findOrFail($id);
         return view ('Trimestre.edit', compact('trimestre'));
     }
 
@@ -85,9 +85,9 @@ class TrimestreController extends Controller
      * @param  \App\Models\Trimestre  $trimestre
      * @return \Illuminate\Http\Response
      */
-    public function destroy($idTrimestre)
+    public function destroy($id)
     {
-        Trimestre::destroy($idTrimestre);
+        Trimestre::destroy($id);
         return redirect('trimestre');
     }
 }

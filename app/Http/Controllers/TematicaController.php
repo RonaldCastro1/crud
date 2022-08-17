@@ -58,9 +58,9 @@ class TematicaController extends Controller
      * @param  \App\Models\Tematica  $tematica
      * @return \Illuminate\Http\Response
      */
-    public function edit($idTematica)
+    public function edit($id)
     {
-        $tematica=Tematica::findOrFail($idTematica);
+        $tematica=Tematica::findOrFail($id);
         return view ('Tematica.edit', compact('tematica'));
     }
 
@@ -75,7 +75,7 @@ class TematicaController extends Controller
     {
         $datosTema = request()->except('_token','_method');
         Tematica::where('idTematica','=','$idTematica')->update($datosTema);
-        $tematica=Tematica::findOrFail($idTematica);
+        $tematica=Tematica::findOrFail($id);
         return view ('Tematica.edit', compact('tematica'));
     }
 
@@ -85,9 +85,9 @@ class TematicaController extends Controller
      * @param  \App\Models\Tematica  $tematica
      * @return \Illuminate\Http\Response
      */
-    public function destroy($idTematica)
+    public function destroy($id)
     {
-        Tematica::destroy($idTematica);
+        Tematica::destroy($id);
         return redirect('tematica');
     }
 }
